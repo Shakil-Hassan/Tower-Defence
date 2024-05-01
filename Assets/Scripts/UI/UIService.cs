@@ -10,7 +10,7 @@ using Assets.Scripts.Utilities;
 
 namespace ServiceLocator.UI
 {
-    public class UIService : GenericMonoSigleton<UIService>
+    public class UIService : GenericMonoSingleton<UIService>
     {
         [SerializeField] private EventService eventService;
 

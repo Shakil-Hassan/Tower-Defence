@@ -7,7 +7,7 @@ using Assets.Scripts.Utilities;
 
 namespace ServiceLocator.Map
 {
-    public class MapService : GenericMonoSigleton<MapService>
+    public class MapService : GenericMonoSingleton<MapService>
     {
         [SerializeField] private EventService eventService;
         [SerializeField] private MapScriptableObject mapScriptableObject;
