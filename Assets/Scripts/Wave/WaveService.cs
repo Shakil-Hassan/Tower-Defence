@@ -11,7 +11,7 @@ using Assets.Scripts.Utilities;
 
 namespace ServiceLocator.Wave
 {
-    public class WaveService : GenericMonoSingleton<WaveService>
+    public class WaveService : GenericMonoSigleton<WaveService>
     {
         [SerializeField] private EventService eventService;
         [SerializeField] private UIService uiService;

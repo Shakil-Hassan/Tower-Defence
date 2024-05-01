@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Utilities
 {
-    public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
+    public class GenericMonoSigleton<T> : MonoBehaviour where T : GenericMonoSigleton<T>
     {
         public static T Instance { get { return instance; } }
         private static T instance;

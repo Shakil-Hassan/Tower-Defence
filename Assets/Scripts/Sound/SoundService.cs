@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ServiceLocator.Sound
 {
-    public class SoundService : GenericMonoSingleton<SoundService>
+    public class SoundService : GenericMonoSigleton<SoundService>
     {
         [SerializeField] private SoundScriptableObject soundScriptableObject;
         [SerializeField] private AudioSource audioEffects;
