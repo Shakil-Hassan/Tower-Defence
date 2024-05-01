@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScriptableObject: {fileID: 11400000, guid: ba423c4fbfbefa248b49a627b9e607b6, type: 2}
+  soundScriptableObject: {fileID: 11400000, guid: 1fe1d13385d932c4987f15e4b7d1cc49, type: 2}
+  audioEffects: {fileID: 1495988717}
+  backgroundMusic: {fileID: 2019223321}
 --- !u!1 &338547894
 GameObject:
   m_ObjectHideFlags: 0

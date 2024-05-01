@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ServiceLocator.Player.Projectile;
-using ServiceLocator.Utilities;
 using ServiceLocator.UI;
 using ServiceLocator.Map;
 using ServiceLocator.Sound;
+using Assets.Scripts.Main;
 
 namespace ServiceLocator.Player
 {
@@ -89,7 +89,7 @@ namespace ServiceLocator.Player
             if (MapService.Instance.TryGetMonkeySpawnPosition(dropPosition, out Vector3 spawnPosition))
             {
                 SpawnMonkey(monkeyType, spawnPosition);
-                SoundService.Instance.PlaySoundEffects(SoundType.SpawnMonkey);
+                GameService.Instance.soundService.PlaySoundEffects(SoundType.SpawnMonkey);
             }
         }
 

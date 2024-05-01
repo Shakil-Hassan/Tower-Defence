@@ -1,6 +1,4 @@
 using Assets.Scripts.Main;
-using ServiceLocator.Player;
-using ServiceLocator.Sound;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,7 +59,7 @@ namespace ServiceLocator.Wave.Bloon
             if (currentHealth <= 0 && currentState == BloonState.ACTIVE)
             {
                 PopBloon();
-                SoundService.Instance.PlaySoundEffects(Sound.SoundType.BloonPop);
+                GameService.Instance.soundService.PlaySoundEffects(Sound.SoundType.BloonPop);
             }
         }
 
