@@ -5,7 +5,6 @@ using ServiceLocator.Utilities;
 using ServiceLocator.UI;
 using ServiceLocator.Map;
 using ServiceLocator.Sound;
-using Assets.Scripts.Utilities;
 
 namespace ServiceLocator.Player
 {

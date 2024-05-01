@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 namespace ServiceLocator.UI
 {
-    public class MonkeyImageHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHandler
+    public class MonkeyImageHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
     {
+        private RectTransform rectTransform;
         private Image monkeyImage;
         private MonkeyCellController owner;
+
         private Sprite spriteToSet;
-        private RectTransform rectTransform;
+        private Vector2 originalAnchoredPosition;
         private Vector3 originalPosition;
-        private Vector3 originalAnchorPosition;
 
         public void ConfigureImageHandler(Sprite spriteToSet, MonkeyCellController owner)
         {
@@ -23,13 +24,14 @@ namespace ServiceLocator.UI
 
         private void Awake()
         {
+            rectTransform = GetComponent<RectTransform>();
             monkeyImage = GetComponent<Image>();
             monkeyImage.sprite = spriteToSet;
-            rectTransform = GetComponent<RectTransform>();
-            originalPosition = rectTransform.position;
-            originalAnchorPosition = rectTransform.anchoredPosition;
-
+            originalPosition = rectTransform.localPosition;
+            originalAnchoredPosition = rectTransform.anchoredPosition;
         }
+
+        public void OnPointerDown(PointerEventData eventData) => monkeyImage.color = new Color(1, 1, 1, 0.6f);
 
         public void OnDrag(PointerEventData eventData)
         {
@@ -43,22 +45,17 @@ namespace ServiceLocator.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            ResetMonkey();
+            ResetMonkeyImage();
             owner.MonkeyDroppedAt(eventData.position);
         }
 
-        private void ResetMonkey()
+        private void ResetMonkeyImage()
         {
-            monkeyImage.color = new Color(1, 1, 1, 1);
-            rectTransform.position = originalPosition;
-            rectTransform.anchoredPosition = originalAnchorPosition;
+            monkeyImage.color = new Color(1, 1, 1, 1f);
+            rectTransform.anchoredPosition = originalAnchoredPosition;
+            rectTransform.localPosition = originalPosition;
             GetComponent<LayoutElement>().enabled = false;
             GetComponent<LayoutElement>().enabled = true;
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            monkeyImage.color = new Color(1,1,1,0.6f);
         }
     }
 }

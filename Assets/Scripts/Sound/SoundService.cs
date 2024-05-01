@@ -1,8 +1,6 @@
-using Assets.Scripts.Utilities;
-using ServiceLocator.Map;
-using ServiceLocator.Wave;
 using System;
 using UnityEngine;
+using ServiceLocator.Utilities;
 
 namespace ServiceLocator.Sound
 {

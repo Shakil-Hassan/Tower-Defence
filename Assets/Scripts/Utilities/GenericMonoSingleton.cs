@@ -1,22 +1,21 @@
-﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Utilities
+namespace ServiceLocator.Utilities
 {
     public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
     {
-        public static T Instance { get { return instance; } }
         private static T instance;
+        public static T Instance { get { return instance; } }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (instance == null)
             {
-                instance = (T) this;
+                instance = (T)this;
             }
             else
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }
